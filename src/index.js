@@ -1,13 +1,13 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import ReactDOM from 'react-dom'
 import App from './App'
 import { GlobalStyle } from './style'
 import { IconFontStyle } from './static/iconfont/iconfont'
 ReactDOM.render(
-  <React.StrictMode>
+  <Fragment>
     <GlobalStyle />
     <IconFontStyle />
     <App />
-  </React.StrictMode>,
+  </Fragment>,
   document.getElementById('root')
 )
