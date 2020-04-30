@@ -46,7 +46,7 @@ export const NavItem = styled.div`
 export const SearchWrapper = styled.div`
   position: relative;
   float: left;
-  .iconfont {
+  .zoom {
     position: absolute;
     right: 5px;
     bottom: 5px;
@@ -55,12 +55,94 @@ export const SearchWrapper = styled.div`
     border-radius: 50%;
     text-align: center;
     line-height: 30px;
+    cursor: pointer;
     &.focused {
       color: #fff;
       background-color: #999;
     }
   }
 `
+
+export const SearchHistoryWrapper = styled.div`
+  position: absolute;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+  top: 100%;
+  left: 20px;
+  width: 250px;
+  margin-top: 9px;
+  padding: 5px;
+  border-radius: 4px;
+  &::before {
+    content: '';
+    left: 27px;
+    width: 10px;
+    height: 10px;
+    transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    top: -5px;
+    z-index: -1;
+    position: absolute;
+    background-color: #fff;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+  }
+  &::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: 12px solid transparent;
+    border-bottom-color: #fff;
+    left: 20px;
+    bottom: 99%;
+  }
+`
+
+export const SearchHistoryItem = styled.a.attrs({
+  target: '_blank'
+})`
+  box-sizing: border-box;
+  display: block;
+  position: relative;
+  height: 40px;
+  padding: 10px 15px;
+  font-size: 14px;
+  line-height: 20px;
+  text-decoration: none;
+  color: #333;
+  .keyword {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: block;
+    padding-right: 30px;
+  }
+  .clock {
+    float: left;
+    margin-right: 10px;
+    font-size: 18px;
+    color: #787878;
+  }
+  .remove {
+    display: none;
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    color: #a0a0a0;
+  }
+  &:hover {
+    background-color: #f0f0f0;
+    border-radius: 4px;
+    .remove {
+      display: block;
+      &:hover {
+        color: #444;
+      }
+    }
+  }
+`
+
 export const NavSearch = styled.input.attrs({
   placeholder: '搜索'
 })`
