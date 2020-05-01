@@ -129,3 +129,67 @@ export const RecommendItem = styled.div`
   background-size: contain;
   cursor: pointer;
 `
+
+export const WriterWrapper = styled.div`
+  margin-bottom: 20px;
+  padding-top: 0;
+  font-size: 13px;
+  text-align: center;
+  .title {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: #969696;
+    .page-change {
+      transition: 0.1s ease-in;
+      cursor: pointer;
+      &:hover {
+        color: #787878;
+      }
+    }
+  }
+`
+
+export const WriterItem = styled.li`
+  margin-top: 15px;
+  line-height: 20px;
+  .avatar,
+  .follow,
+  .name {
+    cursor: pointer;
+  }
+  .avatar {
+    float: left;
+    width: 48px;
+    height: 48px;
+    margin-right: 10px;
+    img {
+      vertical-align: middle;
+      width: 100%;
+      height: 100%;
+      border: 1px solid #ddd;
+      border-radius: 50%;
+    }
+  }
+  .follow {
+    float: right;
+    margin-top: 5px;
+    padding: 0;
+    font-size: 13px;
+    color: #42c02e;
+  }
+  .name {
+    display: block;
+    margin-right: 60px;
+    padding-top: 5px;
+    font-size: 14px;
+    text-align: left;
+  }
+  p {
+    margin-top: 2px;
+    padding: 0 0 10px;
+    font-size: 12px;
+    text-align: left;
+    color: #969696;
+  }
+`

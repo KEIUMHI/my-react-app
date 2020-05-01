@@ -63,6 +63,48 @@ const defaultState = fromJS({
       imgUrl:
         'https://cdn2.jianshu.io/assets/web/banner-s-6-c4d6335bfd688f2ca1115b42b04c28a7.png'
     }
+  ],
+  writerList: [
+    {
+      id: 1,
+      name: '邓哲',
+      avatar:
+        'https://upload.jianshu.io/users/upload_avatars/278/0778727c-c557-4ffb-929c-6ee182a58145.png?imageMogr2/auto-orient/strip|imageView2/1/w/96/h/96/format/webp',
+      fans: '1.3k',
+      wordCount: '433.5k'
+    },
+    {
+      id: 2,
+      name: '邓哲',
+      avatar:
+        'https://upload.jianshu.io/users/upload_avatars/278/0778727c-c557-4ffb-929c-6ee182a58145.png?imageMogr2/auto-orient/strip|imageView2/1/w/96/h/96/format/webp',
+      fans: '1.3k',
+      wordCount: '433.5k'
+    },
+    {
+      id: 3,
+      name: '邓哲',
+      avatar:
+        'https://upload.jianshu.io/users/upload_avatars/278/0778727c-c557-4ffb-929c-6ee182a58145.png?imageMogr2/auto-orient/strip|imageView2/1/w/96/h/96/format/webp',
+      fans: '1.3k',
+      wordCount: '433.5k'
+    },
+    {
+      id: 4,
+      name: '邓哲',
+      avatar:
+        'https://upload.jianshu.io/users/upload_avatars/278/0778727c-c557-4ffb-929c-6ee182a58145.png?imageMogr2/auto-orient/strip|imageView2/1/w/96/h/96/format/webp',
+      fans: '1.3k',
+      wordCount: '433.5k'
+    },
+    {
+      id: 5,
+      name: '邓哲',
+      avatar:
+        'https://upload.jianshu.io/users/upload_avatars/278/0778727c-c557-4ffb-929c-6ee182a58145.png?imageMogr2/auto-orient/strip|imageView2/1/w/96/h/96/format/webp',
+      fans: '1.3k',
+      wordCount: '433.5k'
+    }
   ]
 })
 
