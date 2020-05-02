@@ -211,3 +211,46 @@ export const WriterItem = styled.li`
     color: #969696;
   }
 `
+
+export const BackTop = styled.div`
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  z-index: 1040;
+  width: 50px;
+  height: 50px;
+  border: 1px solid #dcdcdc;
+  text-align: center;
+  background-color: #fff;
+  transition: 0.1s ease-in;
+  cursor: pointer;
+  &.show {
+    display: block;
+  }
+  &.hide {
+    display: none;
+  }
+  &:hover {
+    background-color: hsla(0, 0%, 71%, 0.1);
+  }
+  &::before {
+    content: '';
+    position: absolute;
+    top: calc(50% - 3px);
+    left: 50%;
+    border: 5px solid transparent;
+    border-radius: 2px;
+    border-bottom-color: #333;
+    transform: translate(-50%, -50%) scale(1.9);
+  }
+  &::after {
+    content: '';
+    position: absolute;
+    top: calc(50% - 1px);
+    left: 50%;
+    border: 5px solid transparent;
+    border-radius: 2px;
+    border-bottom-color: #fff;
+    transform: translate(-50%, -50%) scale(1.9);
+  }
+`

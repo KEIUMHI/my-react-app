@@ -46,3 +46,11 @@ export const getMoreList = page => async dispatch => {
     console.log(err)
   }
 }
+
+/**
+ * 显示隐藏回到顶部
+ */
+export const changeBackTopVisible = flag => ({
+  type: constants.CHANGE_BACK_TOP_VISIBLE,
+  flag
+})

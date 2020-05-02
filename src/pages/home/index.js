@@ -5,10 +5,12 @@ import Topic from './components/Topic'
 import List from './components/List'
 import Recommend from './components/Recommend'
 import Writer from './components/Writer'
-import { HomeWrapper, HomeLeft, HomeRight } from './style'
+import { SCROLL_BACK_HEIGHT } from '../.../../../utils/config'
+import { HomeWrapper, HomeLeft, HomeRight, BackTop } from './style'
 
 class Home extends Component {
   render() {
+    const { backTopVisible } = this.props
     return (
       <HomeWrapper>
         {/* <img
@@ -23,6 +25,10 @@ class Home extends Component {
           <Recommend />
           <Writer />
         </HomeRight>
+        <BackTop
+          className={backTopVisible ? 'show' : 'hide'}
+          onClick={this.handleBackTop}
+        ></BackTop>
       </HomeWrapper>
     )
   }
@@ -30,14 +36,32 @@ class Home extends Component {
   componentDidMount() {
     const { getHomeData } = this.props
     getHomeData()
+    this.bindEvents()
+  }
+
+  handleBackTop() {
+    window.scrollTo(0, 0)
+  }
+
+  bindEvents() {
+    const { changeBackTopVisible } = this.props
+    window.addEventListener('scroll', changeBackTopVisible)
   }
 }
 
+const mapState = state => ({
+  backTopVisible: state.getIn(['home', 'backTopVisible'])
+})
+
 const mapDispatch = dispatch => ({
   getHomeData() {
-    const action = actionCreators.getHomeData()
-    dispatch(action)
+    dispatch(actionCreators.getHomeData())
+  },
+  changeBackTopVisible() {
+    document.documentElement.scrollTop > SCROLL_BACK_HEIGHT
+      ? dispatch(actionCreators.changeBackTopVisible(true))
+      : dispatch(actionCreators.changeBackTopVisible(false))
   }
 })
 
-export default connect(null, mapDispatch)(Home)
+export default connect(mapState, mapDispatch)(Home)

@@ -6,7 +6,8 @@ const defaultState = fromJS({
   articleList: [],
   recommendList: [],
   writerList: [],
-  articlePage: 1
+  articlePage: 1,
+  backTopVisible: false
 })
 
 export default (state = defaultState, action) => {
@@ -26,7 +27,9 @@ export default (state = defaultState, action) => {
         articleList: state.get('articleList').concat(fromJS(action.list)),
         articlePage: fromJS(nextPage)
       })
-    }
+    },
+    [constants.CHANGE_BACK_TOP_VISIBLE]: () =>
+      state.set('backTopVisible', fromJS(action.flag))
   }
   if (typeof types[action.type] !== 'function') return state
   return types[action.type]()
