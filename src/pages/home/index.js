@@ -28,13 +28,13 @@ class Home extends Component {
   }
 
   componentDidMount() {
-    const { getHome } = this.props
-    getHome()
+    const { getHomeData } = this.props
+    getHomeData()
   }
 }
 
 const mapDispatch = dispatch => ({
-  getHome() {
+  getHomeData() {
     const action = actionCreators.getHomeData()
     dispatch(action)
   }

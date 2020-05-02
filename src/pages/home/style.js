@@ -63,6 +63,9 @@ export const ListItem = styled.li`
     border: 1px solid #f0f0f0;
     cursor: pointer;
   }
+  .no-pic {
+    padding-right: unset;
+  }
 `
 
 export const ListItemInfo = styled.div`
@@ -113,6 +116,21 @@ export const ListItemMeta = styled.div`
     &:hover {
       color: #787878;
     }
+  }
+`
+
+export const LoadMore = styled.div`
+  height: 40px;
+  margin: 30px auto 60px;
+  border-radius: 20px;
+  font-size: 15px;
+  line-height: 40px;
+  text-align: center;
+  color: #fff;
+  background-color: #a5a5a5;
+  cursor: pointer;
+  &:hover {
+    background-color: #9b9b9b;
   }
 `
 
