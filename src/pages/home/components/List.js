@@ -1,18 +1,23 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import { actionCreators } from '../store'
+import { Link } from 'react-router-dom'
 import { ListItem, ListItemInfo, ListItemMeta, LoadMore } from '../style'
 
-class List extends Component {
+class List extends PureComponent {
   render() {
     const { articleList, getMoreList, page } = this.props
     const getListItem = articleList.map((item, index) => (
       <ListItem key={index}>
         {item.get('imgUrl') && (
-          <img className="pic" src={item.get('imgUrl')} alt="120" />
+          <Link to="/detail">
+            <img className="pic" src={item.get('imgUrl')} alt="120" />
+          </Link>
         )}
         <ListItemInfo className={!item.get('imgUrl') ? 'no-pic' : ''}>
-          <h3 className="title">{item.get('title')}</h3>
+          <Link className="title" to="/detail">
+            <h3 className="title">{item.get('title')}</h3>
+          </Link>
           <p className="desc">{item.get('desc')}</p>
         </ListItemInfo>
         <ListItemMeta>
@@ -20,10 +25,10 @@ class List extends Component {
             <i className="iconfont">&#xe609;</i>
             {item.get('paid')}
           </span>
-          <a className="nickname" href="/#">
+          <a className="nickname" href="/">
             {item.get('nickname')}
           </a>
-          <a className="comment" href="/#">
+          <a className="comment" href="/">
             <i className="iconfont">&#xe6b2;</i>
             {item.get('commentCount')}
           </a>

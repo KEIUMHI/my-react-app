@@ -76,6 +76,8 @@ export const ListItemInfo = styled.div`
     font-size: 18px;
     font-weight: 700;
     line-height: 1.5;
+    text-decoration: none;
+    color: #333;
     cursor: pointer;
     :hover {
       text-decoration: underline;
