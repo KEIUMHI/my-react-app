@@ -13,11 +13,12 @@ class Home extends PureComponent {
     const { backTopVisible } = this.props
     return (
       <HomeWrapper>
-        {/* <img
-          src="https://upload.jianshu.io/collections/images/83/1.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/64/h/64"
-          alt="64"
-        /> */}
         <HomeLeft>
+          <img
+            className="banner-img"
+            src="https://cdn2.jianshu.io/asimov/src/assets/image/club/center/img_banner.8c6ec5fa.png"
+            alt="64"
+          />
           <Topic />
           <List />
         </HomeLeft>

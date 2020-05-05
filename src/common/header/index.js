@@ -47,7 +47,9 @@ class Header extends PureComponent {
                 value={searchValue}
                 onChange={handleInputChange}
                 onKeyDown={e => {
-                  e.keyCode === KEY_ENTER && handleSearch(searchValue)
+                  e.keyCode === KEY_ENTER &&
+                    searchValue &&
+                    handleSearch(searchValue)
                 }}
                 onFocus={handleInputFocus}
                 onBlur={handleInputBlur}
