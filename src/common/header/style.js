@@ -1,9 +1,15 @@
 import styled from 'styled-components'
 
 export const HeaderWrapper = styled.div`
-  position: relative;
+  position: fixed;
+  top: 0;
+  left:0;
+  width: 100vw;
+  min-width: 768px;
   height: 58px;
   border-bottom: 1px solid #ccc;
+  background-color: #fff;
+  z-index: 99;
 `
 
 export const Logo = styled.div`

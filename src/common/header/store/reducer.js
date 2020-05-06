@@ -23,8 +23,8 @@ export default (state = defaultState, action) => {
   return types[action.type]()
 }
 
-const searchFocus = (state, action) => state.set('focused', true)
-const searchBlur = (state, action) => state.set('focused', false)
+const searchFocus = state => state.set('focused', true)
+const searchBlur = state => state.set('focused', false)
 const setSearchValue = (state, action) => state.set('searchValue', action.value)
 const setSearchHistory = (state, action) => {
   if (action.value) {
@@ -33,7 +33,6 @@ const setSearchHistory = (state, action) => {
     if (!searchHistory.includes(action.value)) {
       searchHistory.unshift(action.value)
       // 设置搜索历史记录最大长度
-      console.log(searchHistory)
       searchHistory.length > MAX_SEARCH_HISTORY && searchHistory.pop()
       // 设置本地缓存
       setLocalStorage('search-history', searchHistory)

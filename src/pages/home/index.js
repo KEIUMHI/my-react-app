@@ -5,7 +5,7 @@ import Topic from './components/Topic'
 import List from './components/List'
 import Recommend from './components/Recommend'
 import Writer from './components/Writer'
-import { SCROLL_BACK_HEIGHT } from '../.../../../utils/config'
+import { SCROLL_BACK_HEIGHT } from '../../utils/config'
 import { HomeWrapper, HomeLeft, HomeRight, BackTop } from './style'
 
 class Home extends PureComponent {
@@ -14,11 +14,16 @@ class Home extends PureComponent {
     return (
       <HomeWrapper>
         <HomeLeft>
-          <img
-            className="banner-img"
-            src="https://cdn2.jianshu.io/asimov/src/assets/image/club/center/img_banner.8c6ec5fa.png"
-            alt="64"
-          />
+          <a
+            href="https://mp.weixin.qq.com/s/wnq47_ACfj61e25ywL8HnQ"
+            target="_blank"
+          >
+            <img
+              className="banner-img"
+              src="https://upload.jianshu.io/admin_banners/web_images/4942/f7e1fedab8f5e44e62700ceb873a2d0d71d25140.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/1250/h/540"
+              alt="64"
+            />
+          </a>
           <Topic />
           <List />
         </HomeLeft>
@@ -29,14 +34,13 @@ class Home extends PureComponent {
         <BackTop
           className={backTopVisible ? 'show' : 'hide'}
           onClick={this.handleBackTop}
-        ></BackTop>
+        />
       </HomeWrapper>
     )
   }
 
   componentDidMount() {
-    const { getHomeData } = this.props
-    getHomeData()
+    this.props.getHomeData()
     this.bindEvents()
   }
 
@@ -45,8 +49,11 @@ class Home extends PureComponent {
   }
 
   bindEvents() {
-    const { changeBackTopVisible } = this.props
-    window.addEventListener('scroll', changeBackTopVisible)
+    window.addEventListener('scroll', this.props.changeBackTopVisible)
+  }
+
+  unbindEvents() {
+    window.removeEventListener('scroll', this.props.changeBackTopVisible)
   }
 }
 

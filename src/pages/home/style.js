@@ -12,7 +12,8 @@ export const HomeLeft = styled.div`
   width: 625px;
   .banner-img {
     width: 100%;
-    height: 270px;
+    height: 210px;
+    border-radius:5px;
   }
 `
 
@@ -29,6 +30,7 @@ export const TopicWrapper = styled.div`
 `
 
 export const TopicItem = styled.div`
+overflow: hidden;
   float: left;
   height: 32px;
   margin-left: 18px;
@@ -40,6 +42,7 @@ export const TopicItem = styled.div`
   line-height: 32px;
   color: #000;
   background-color: #f7f7f7;
+  cursor: pointer;
   .topic-pic {
     display: block;
     float: left;
