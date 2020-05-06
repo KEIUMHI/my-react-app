@@ -10,12 +10,12 @@ class List extends PureComponent {
     const getListItem = articleList.map((item, index) => (
       <ListItem key={index}>
         {item.get('imgUrl') && (
-          <Link to="/detail">
+          <Link to={`/detail/${item.get('id')}`}>
             <img className="pic" src={item.get('imgUrl')} alt="120" />
           </Link>
         )}
         <ListItemInfo className={!item.get('imgUrl') ? 'no-pic' : ''}>
-          <Link className="title" to="/detail">
+          <Link className="title" to={`/detail/${item.get('id')}`}>
             <h3 className="title">{item.get('title')}</h3>
           </Link>
           <p className="desc">{item.get('desc')}</p>

@@ -111,8 +111,13 @@ class Detail extends PureComponent {
   }
 
   componentDidMount() {
-    const { getDetailData } = this.props
-    getDetailData()
+    const {
+      getDetailData,
+      match: {
+        params: { id: detailId }
+      }
+    } = this.props
+    getDetailData(detailId)
     this.bindEvents()
   }
 
@@ -160,8 +165,8 @@ const mapState = state => ({
 })
 
 const mapDispatch = dispatch => ({
-  getDetailData() {
-    dispatch(actionCreators.getDetailData())
+  getDetailData(id) {
+    dispatch(actionCreators.getDetailData(id))
   },
   changeBackTopVisible() {
     document.documentElement.scrollTop > SCROLL_BACK_HEIGHT

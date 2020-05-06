@@ -6,9 +6,9 @@ const setDetailData = data => ({
   ...data
 })
 
-export const getDetailData = () => async dispatch => {
+export const getDetailData = id => async dispatch => {
   try {
-    const res = await axios.get('/api/detail.json')
+    const res = await axios.get(`/api/detail.json?id=${id}`)
     console.log(res)
     dispatch(setDetailData(res.data.data))
   } catch (err) {
