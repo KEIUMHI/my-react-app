@@ -16,6 +16,7 @@ class Home extends PureComponent {
         <HomeLeft>
           <a
             href="https://mp.weixin.qq.com/s/wnq47_ACfj61e25ywL8HnQ"
+            // eslint-disable-next-line
             target="_blank"
           >
             <img

@@ -30,6 +30,7 @@ export const Creator = styled.div`
     min-height: 48px;
     width: 48px;
     height: 48px;
+    margin-bottom: 0;
   }
   .info {
     margin-left: 8px;
