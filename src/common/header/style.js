@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const HeaderWrapper = styled.div`
   position: fixed;
   top: 0;
-  left:0;
+  left: 0;
   width: 100vw;
   min-width: 768px;
   height: 58px;
@@ -31,10 +31,11 @@ export const Nav = styled.div`
 `
 
 export const NavItem = styled.div`
-  line-height: 56px;
+  line-height: 58px;
   font-size: 17px;
   padding: 0 15px;
   color: #333;
+  cursor: pointer;
   &.left {
     float: left;
   }
@@ -44,6 +45,9 @@ export const NavItem = styled.div`
   }
   &.active {
     color: #ea6f5a;
+  }
+  &:hover {
+    background-color: #f5f5f5;
   }
 `
 
@@ -199,6 +203,11 @@ export const Button = styled.div`
   line-height: 38px;
   &.reg {
     color: #ea6f5a;
+    &:hover {
+      color: #ec6149;
+      border-color: #ec6149;
+      background-color: rgba(236, 97, 73, 0.05);
+    }
   }
   &.writing {
     color: #fff;

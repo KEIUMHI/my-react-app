@@ -6,10 +6,13 @@ class Recommend extends PureComponent {
   render() {
     const { recommendList } = this.props
     const getRecommendItem = recommendList.map(item => (
-      <RecommendItem
-        key={item.get('id')}
-        imgUrl={item.get('imgUrl')}
-      ></RecommendItem>
+      // eslint-disable-next-line
+      <a href={item.get('link')} target="_blank">
+        <RecommendItem
+          key={item.get('id')}
+          imgUrl={item.get('imgUrl')}
+        ></RecommendItem>
+      </a>
     ))
     return <RecommendWrapper>{getRecommendItem}</RecommendWrapper>
   }

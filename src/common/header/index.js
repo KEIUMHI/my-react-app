@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import { CSSTransition } from 'react-transition-group'
 import { actionCreators } from './store'
+import { actionCreators as signActionCreators } from '../../pages/sign/store'
 import { BASE_URL, KEY_ENTER } from '../../utils/config'
 import { Link } from 'react-router-dom'
 import {
@@ -22,10 +23,12 @@ class Header extends PureComponent {
     const {
       focused,
       searchValue,
+      signedIn,
       handleInputFocus,
       handleInputBlur,
       handleInputChange,
-      handleSearch
+      handleSearch,
+      handleSignOut
     } = this.props
 
     return (
@@ -34,9 +37,19 @@ class Header extends PureComponent {
           <Logo />
         </Link>
         <Nav>
-          <NavItem className="left active">首页</NavItem>
+          <Link to="/">
+            <NavItem className="left active">首页</NavItem>
+          </Link>
           <NavItem className="left">下载App</NavItem>
-          <NavItem className="right">登录</NavItem>
+          {!signedIn ? (
+            <Link to="/sign/sign_in">
+              <NavItem className="right">登录</NavItem>
+            </Link>
+          ) : (
+            <NavItem className="right" onClick={handleSignOut}>
+              注销
+            </NavItem>
+          )}
           <NavItem className="right">
             <i className="iconfont">&#xe636;</i>
           </NavItem>
@@ -70,7 +83,9 @@ class Header extends PureComponent {
           <Button className="writing">
             <i className="iconfont">&#xe600;</i> 写文章
           </Button>
-          <Button className="reg">注册</Button>
+          <Link to="/sign/sign_up">
+            <Button className="reg">注册</Button>
+          </Link>
         </Addition>
       </HeaderWrapper>
     )
@@ -113,7 +128,8 @@ class Header extends PureComponent {
 const mapStateToProps = state => ({
   focused: state.getIn(['header', 'focused']),
   searchValue: state.getIn(['header', 'searchValue']),
-  searchHistory: state.getIn(['header', 'searchHistory'])
+  searchHistory: state.getIn(['header', 'searchHistory']),
+  signedIn: state.getIn(['sign', 'signedIn'])
 })
 
 const mapDispatchToProps = dispatch => ({
@@ -138,6 +154,9 @@ const mapDispatchToProps = dispatch => ({
   handleDeleteSearchHistory(index) {
     const action = actionCreators.deleteSearchHistory(index)
     dispatch(action)
+  },
+  handleSignOut() {
+    dispatch(signActionCreators.signOut())
   }
 })
 

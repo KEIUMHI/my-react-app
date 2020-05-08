@@ -2,7 +2,6 @@ import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { renderRoutes } from 'react-router-config'
-import { actionCreators } from './store'
 import {
   SignWrapper,
   SignContainer,
@@ -13,23 +12,22 @@ import {
 
 class Sign extends PureComponent {
   render() {
-    const { signInActive, toggleSignInActive } = this.props
+    const isSignInActive = () =>
+      this.props.location.pathname.indexOf('sign_in') > -1
     return (
       <SignWrapper>
         <SignContainer>
           <SignHeader>
             <Link
-              className={signInActive ? 'link active' : 'link'}
+              className={isSignInActive() ? 'link active' : 'link'}
               to="/sign/sign_in"
-              onClick={() => toggleSignInActive(true)}
             >
               登录
             </Link>
             <b>·</b>
             <Link
-              className={!signInActive ? 'link active' : 'link'}
+              className={!isSignInActive() ? 'link active' : 'link'}
               to="/sign/sign_up"
-              onClick={() => toggleSignInActive(false)}
             >
               注册
             </Link>
@@ -47,10 +45,6 @@ const mapState = state => ({
   signInActive: state.getIn(['sign', 'signInActive'])
 })
 
-const mapDispatch = dispatch => ({
-  toggleSignInActive(flag) {
-    dispatch(actionCreators.toggleSignInActive(flag))
-  }
-})
+const mapDispatch = dispatch => ({})
 
 export default connect(mapState, mapDispatch)(Sign)

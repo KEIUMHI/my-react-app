@@ -1,1 +1,1 @@
-export const CHANGE_SIGN_IN_ACTIVE = 'sign/CHANGE_SIGN_IN_ACTIVE'
+export const CHANGE_SIGNED_IN = 'sign/CHANGE_SIGNED_IN'

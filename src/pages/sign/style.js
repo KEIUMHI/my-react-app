@@ -104,6 +104,22 @@ export const SignMain = styled.div`
       text-decoration: none;
     }
   }
+  .input-wrapper {
+    position: relative;
+  }
+  .input-wrapper ~ .input-wrapper {
+    .input {
+      border-top: none;
+    }
+  }
+  i {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    font-size: 18px;
+    color: #969696;
+    transform: translateY(-50%);
+  }
 `
 
 export const SignFooter = styled.div``
@@ -115,7 +131,15 @@ export const Input = styled.input`
   margin-bottom: 0;
   padding: 4px 12px 4px 35px;
   border: 1px solid #c8c8c8;
-  border-radius: 0 0 4px 4px;
   background-color: hsla(0, 0%, 71%, 0.1);
   vertical-align: middle;
+  font-size: 14px;
+  outline: none;
+
+  &.radius-t {
+    border-radius: 4px 4px 0 0;
+  }
+  &.radius-b {
+    border-radius: 0 0 4px 4px;
+  }
 `
